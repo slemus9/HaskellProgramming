@@ -10,5 +10,5 @@ unfold f a =
 treeBuild :: Integer -> BinaryTree Integer
 treeBuild n = unfold (build) 0 where
   build x
-   | x < n = Just (x + 1, x, x + 1)
+   | x < ne = Just (x + 1, x, x + 1)
    | otherwise = Nothing
