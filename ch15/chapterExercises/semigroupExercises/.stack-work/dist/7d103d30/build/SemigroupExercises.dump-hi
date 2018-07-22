@@ -1,0 +1,57 @@
+
+==================== FINAL INTERFACE ====================
+2018-07-15 22:43:19.9942087 UTC
+
+interface semigroupExercises-0.1.0-6MXYLHQT8jY1vZ7bAah7Gr:SemigroupExercises 8043
+  interface hash: 7ff66fb998cb2c89988c4c3c8613e2c9
+  ABI hash: ca333a0f05b79d1495bfa5d2b9d68ff9
+  export-list hash: 78ac7e546be88623aca2ad97300f2932
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: a638b00e79896c4afe0dbf07fca69777
+  opt_hash: 14e536840aca4e889cad654e6f9b79c1
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+module dependencies:
+package dependencies: base-4.11.1.0* ghc-prim-0.5.2.0
+                      integer-gmp-1.0.2.0
+orphans: base-4.11.1.0:GHC.Float base-4.11.1.0:GHC.Base
+family instance modules: base-4.11.1.0:Control.Applicative
+                         base-4.11.1.0:Data.Functor.Const
+                         base-4.11.1.0:Data.Functor.Identity base-4.11.1.0:Data.Monoid
+                         base-4.11.1.0:Data.Semigroup base-4.11.1.0:Data.Semigroup.Internal
+                         base-4.11.1.0:Data.Version base-4.11.1.0:GHC.Generics
+                         base-4.11.1.0:GHC.IO.Exception
+import  -/  base-4.11.1.0:Data.Semigroup b651656bc07ee696d3ba810dd3109b45
+import  -/  base-4.11.1.0:Prelude aca391812f777207b15d62bb5b9feb63
+767b6bd86dbbf0d44d86d8320142f7bd
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   SemigroupExercises.$trModule3
+                   SemigroupExercises.$trModule1) -}
+6442fd96816f3789b8376798b5256b08
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS SemigroupExercises.$trModule2) -}
+2c8f047582e5e0cc08f2b9c566fa673b
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("SemigroupExercises"#) -}
+16279f7328c547867139200f136c0686
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS SemigroupExercises.$trModule4) -}
+75467205f7039d5df3be8f8ff3608b29
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("semigroupExercises-0.1.0-6MXYLHQT8jY1vZ7bAah7Gr"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
