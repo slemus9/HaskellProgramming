@@ -45,13 +45,14 @@ and' :: Bool -> Bool -> Bool
 and' True True = True
 and' _ _ = False
 
+-- Tuple Patterns
+
 fst' :: (a, b) -> a
 fst' (x, _) = x
 
 snd' :: (a, b) -> b
 snd' (_, y) = y
 
--- Decides if the list contains exactly three characters at the beginning with 'a'
 test :: [Char] -> Bool
 test ('a':_) = True
 test _ = False
@@ -65,3 +66,29 @@ head' (x:_) = x
 
 tail' :: [a] -> [a]
 tail' (_:xs) = xs
+
+-- Integer Patterns (Removed from the language)
+{-
+pred :: Int -> Int
+pred 0 = 0
+pred (n + 1) = n
+-}
+
+-- Lambda Expressions
+
+add = \x -> (\y -> x + y)
+
+const' :: a -> (b -> a)
+const' x = \ _ -> x
+
+odds :: Int -> [Int]
+odds n = map f [0 .. n-1]
+          where f x = x*2 + 1
+
+odds' :: Int -> [Int]
+odds' n = map (\x -> x*2 + 1)[0 .. n-1]
+
+-- Sections
+
+and'' :: [Bool] -> Bool
+and'' = foldr (&&) True
