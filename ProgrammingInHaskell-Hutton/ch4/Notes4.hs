@@ -14,7 +14,7 @@ splitAt' n xs = (take n xs, drop n xs)
 recip' :: Fractional a => a -> a
 recip' n = 1/n
 
--- Conditional Expressions:
+-- * Conditional Expressions:
 
 abs' :: Int -> Int
 abs' n = if n >= 0 then n else -n
@@ -23,7 +23,7 @@ signum' :: Int -> Int
 signum' n = if n < 0 then -1 else
               if n == 0 then 0 else 1
 
--- Guarded Equations
+-- * Guarded Equations
 
 abs'' :: Int -> Int
 abs'' n | n >= 0 = n
@@ -35,7 +35,7 @@ signum'' n
   | n == 0 = 0
   | otherwise = 1
 
--- Pattern Matching
+-- * Pattern Matching
 
 not' :: Bool -> Bool
 not' False = True
@@ -45,7 +45,7 @@ and' :: Bool -> Bool -> Bool
 and' True True = True
 and' _ _ = False
 
--- Tuple Patterns
+-- * Tuple Patterns
 
 fst' :: (a, b) -> a
 fst' (x, _) = x
@@ -67,14 +67,14 @@ head' (x:_) = x
 tail' :: [a] -> [a]
 tail' (_:xs) = xs
 
--- Integer Patterns (Removed from the language)
+-- * Integer Patterns (Removed from the language)
 {-
 pred :: Int -> Int
 pred 0 = 0
 pred (n + 1) = n
 -}
 
--- Lambda Expressions
+-- * Lambda Expressions
 
 add = \x -> (\y -> x + y)
 
@@ -88,7 +88,7 @@ odds n = map f [0 .. n-1]
 odds' :: Int -> [Int]
 odds' n = map (\x -> x*2 + 1)[0 .. n-1]
 
--- Sections
+-- * Sections
 
 and'' :: [Bool] -> Bool
 and'' = foldr (&&) True
