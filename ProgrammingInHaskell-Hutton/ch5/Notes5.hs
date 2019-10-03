@@ -8,6 +8,8 @@ module Notes5(
 
 import Data.Char
 
+-- ** List Comprehensions
+
 -- * Generators
 
 {- Examples:

@@ -21,7 +21,7 @@ safetail' xs
 -- 2.c Using pattern matching:
 safetail'' :: [a] -> [a]
 safetail'' [] = []
-safetail'' (x:xs) = xs
+safetail'' (_:xs) = xs
 
 {- 3. In a similar way to ∧, show how the logical disjunction operator ∨ can
 be defined in four different ways using pattern matching.
@@ -63,7 +63,7 @@ True ∧ b = b
 False ∧ _ = False
 -}
 and2 :: Bool -> Bool -> Bool
-and2 b c = if (b == True) then c else False
+and2 b c = if b then c else False
 
 {- 6. Show how the curried function definition mult x y z = x ∗ y ∗ z can be
 understood in terms of lambda expressions.
