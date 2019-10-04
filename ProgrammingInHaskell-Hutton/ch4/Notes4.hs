@@ -1,3 +1,5 @@
+-- ** Defining Functions
+
 -- Decide if a character is a digit:
 isDigit :: Char -> Bool
 isDigit c = c >= '0' && c <= '9'

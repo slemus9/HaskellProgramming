@@ -1,3 +1,5 @@
+-- ** Types and Classes
+
 -- Exercises:
 
 {-
@@ -36,7 +38,7 @@ Eq class? When is it feasible? Hint: two functions of the same type are
 equal if they always return equal results for equal arguments.
 
 Since two functions are equal only if for the same arguments they provide the same
-results, it is not feasible (in general) for them to be instances of Eq, as there 
+results, it is not feasible (in general) for them to be instances of Eq, as there
 exists Surjective functions that might map more than one result for the same arguments.
 
 It is not feasable since we would have to check every result for every argument of the function
