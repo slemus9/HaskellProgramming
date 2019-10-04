@@ -1,3 +1,6 @@
+import StringTransmitter
+import Data.Char
+
 {- 1. Show how the list comprehension [f x | x ← xs, p x ]
 can be re-expressed using the higher-order functions map and filter
 -}
@@ -105,3 +108,37 @@ iterate' f = unfold (\_ -> False) id f
 {- 8. Modify the string transmitter program to detect simple transmission
 errors using parity bits.
 -}
+parity :: [Bit] -> Int
+parity bits = (count bits) `mod` 2
+  where
+    count = foldr (\x y -> x `mod` 2 + y) 0
+
+make9 :: [Bit] -> [Bit]
+make9 bits = byte ++ [parity byte]
+  where
+    byte = make8 bits
+
+encode :: String -> [Bit]
+encode = concat.map(make9.int2bin.ord)
+
+chop9 :: [Bit] -> [[Bit]]
+chop9 [] = []
+chop9 bits
+  | parity taken == head dropped = taken : chop9 (tail dropped)
+  | otherwise = error "Parity error"
+    where
+      taken = take 8 bits
+      dropped = drop 8 bits
+
+decode :: [Bit] -> String
+decode = map(chr.bin2int).chop9
+
+{- 9. Test your new string transmitter program from the previous exercise
+using a faulty communication channel that forgets the first bit, which
+can be modelled using the tail function on lists of bits.
+-}
+faultyChannel :: [Bit] -> [Bit]
+faultyChannel = tail
+
+faultyTransmit :: String -> String
+faultyTransmit = decode.faultyChannel.encode

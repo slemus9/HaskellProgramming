@@ -1,6 +1,7 @@
 module StringTransmitter(
   bin2int,
-  int2bin
+  int2bin,
+  make8
 ) where
 
 import Data.Char
