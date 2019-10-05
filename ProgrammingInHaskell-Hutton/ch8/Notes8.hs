@@ -84,8 +84,8 @@ p >>== f = \inp -> case parse p inp of
 {- A parser that consumes three characters, discards the second,
 and returns the first and third as a pair:
 -}
-p :: Parser (Char, Char)
-p = item >>== \x ->
+p3c :: Parser (Char, Char)
+p3c = item >>== \x ->
     item >>== \_ ->
     item >>== \y ->
     return' (x, y)
@@ -133,3 +133,97 @@ string [] = return' []
 string (x : xs) = char x >>== \_ ->
                   string xs >>== \_ ->
                   return' (x : xs)
+
+{- many and many1 apply a parser p as many times
+as possible until it fails. Many allows 0 or more
+applications of p, whereas many 1 requires at least
+one successful application.
+-}
+many :: Parser a -> Parser [a]
+many p = many1 p +++ return' []
+
+many1 :: Parser a -> Parser [a]
+many1 p = p      >>== \v  ->
+          many p >>== \vs ->
+          return' (v : vs)
+
+ident :: Parser String
+ident = lower >>== \x ->
+        many alphanum >>== \xs ->
+        return' (x : xs)
+
+nat :: Parser Int
+nat = many1 digit >>== \xs ->
+      return' (read xs)
+
+-- () : empty tuple. NOTE: Not working correctly.
+space :: Parser ()
+space = many (sat isSpace) >>= \_ ->
+        return' ()
+
+-- * Handling Spacing
+
+-- Primitive that ignores any space before and after applying a parser for a token
+token :: Parser a -> Parser a
+token p = space >>== \_ ->
+          p     >>== \v ->
+          space >>== \_ ->
+          return' v
+
+-- Parsers that ignore spacing:
+identifier :: Parser String
+identifier = token ident
+
+natural :: Parser Int
+natural = token nat
+
+symbol :: String -> Parser String
+symbol xs = token (string xs)
+
+{- A parser for a non-empty list of natural numbers that ignores spacing
+around tokens can be defined as follows.
+NOTE: Not working correctly.
+-}
+pIntList :: Parser [Int]
+pIntList =  symbol "["     >>== \_  ->
+            natural        >>== \n  ->
+            many (symbol "," >>== \_ ->
+                  natural) >>== \ns ->
+            symbol "]"     >>== \_  ->
+            return' (n : ns)
+
+-- * Arithmetic Expressions
+
+{-
+expr ::= term (+ expr | e)
+term ::= factor (* term | e)
+factor ::= (expr) | nat
+nat ::= 0 | 1 | 2 | ...
+where e denotes empty string
+-}
+expr :: Parser Int
+expr = term >>== \t ->
+        (symbol "+" >>== \_ ->
+         expr       >>== \e ->
+         return' (t + e))
+        +++ return' t
+
+term :: Parser Int
+term = factor >>== \f ->
+        (symbol "*" >>== \_ ->
+         term       >>== \t ->
+         return' (f * t))
+        +++ return' f
+
+factor :: Parser Int
+factor = (symbol "(" >>== \_ ->
+          expr       >>== \e ->
+          symbol ")" >>== \_ ->
+          return' e)
+         +++ natural
+
+eval :: String -> Int
+eval xs = case parse expr xs of
+               [(n, [])]  -> n
+               [(_, out)] -> error ("unconsumed input " ++ out)
+               []         -> error "invalid input"
