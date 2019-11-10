@@ -58,17 +58,11 @@ Looking at the type of each function we can see the following:
   map (^2) :: Num b => [b] -> [b]
   sum :: Num c => [c] -> c
 
-The composition between these functions results in:
-  sum.(map (^2)).(filter even) :: Integral c => [c] -> c
-
-However, the function compose is of type:
+The function compose is of type:
   compose :: [a -> a] -> (a -> a)
 
-Meaning that compose outputs a function that receives a given type
-and returns a result of the same type. Hence, we cannot call compose
-over that particular array, since its composition results in a function
-that returns a value that is of different type than the received argument
-([c] -> c)
+Since the functions in the list received by compose must be of the same
+type, we can't use this functions to compose the given array of funtions.
 -}
 
 {- 6. Without looking at the standard prelude, define the higher-order library
