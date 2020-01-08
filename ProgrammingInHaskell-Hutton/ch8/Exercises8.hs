@@ -92,6 +92,24 @@ have higher priority than multiplication and division, but lower priority
 than parentheses and numbers.
 
 Extension:
-  
-
+  expr ::= term(+ expr | - expr | \epsilon)
+  term ::= factor(* term | / term | \epsilon)
+  factor ::= base(^ factor | \epsilon)
+  base ::= (expr) | nat
+  nat ::= 0 | 1 | 2 ...
 -}
+base :: Parser Int
+base = (symbol "(" >>= \_ ->
+        expr       >>= \e ->
+        symbol ")" >>= \_ ->
+        return e)
+       +++
+       natural
+
+factor :: Parser Int
+factor = base >>= \b ->
+         (symbol "^" >>= \_ ->
+          factor     >>= \f ->
+          return (b ^ f))
+         +++
+         return b

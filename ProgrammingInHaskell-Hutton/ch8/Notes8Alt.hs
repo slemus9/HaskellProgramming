@@ -7,8 +7,7 @@ module Notes8Alt(
   sat,
   alphanum,
   many',
-  char,
-  factor
+  char
 ) where
 
 import Data.Char
