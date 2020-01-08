@@ -96,7 +96,7 @@ Extension:
   term ::= factor(* term | / term | \epsilon)
   factor ::= base(^ factor | \epsilon)
   base ::= (expr) | nat
-  nat ::= 0 | 1 | 2 ...
+  nat ::= 0 | 1 | 2 | ...
 -}
 base :: Parser Int
 base = (symbol "(" >>= \_ ->
@@ -113,3 +113,30 @@ factor = base >>= \b ->
           return (b ^ f))
          +++
          return b
+
+{- 8. Consider expressions built up from natural numbers using a subtraction
+operator that is assumed to associate to the left.
+-}
+
+{- 8.a. Define a natural grammar for such expressions.
+
+  expr ::= expr - nat | nat
+  nat ::= 0 | 1 | 2 | ...
+-}
+
+-- 8.b. Translate this grammar into a parser expr :: Parser Int.
+exprSubs :: Parser Int
+exprSubs = (exprSubs   >>= \e ->
+            symbol "-" >>= \_ ->
+            natural    >>= \n ->
+            return (e - n))
+           +++
+           natural
+
+{- 8.c What is the problem with this parser?
+When trying to associate to the left, the first operation of the function was set
+to be a recursion; precisely because this is the first operation, the recursion is
+generating an infinite loop.
+-}
+
+-- 8.d. Show how it can be fixed
