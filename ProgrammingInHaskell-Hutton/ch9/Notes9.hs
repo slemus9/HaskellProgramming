@@ -6,8 +6,6 @@ module Notes9 (
   goto
 ) where
 
-import System.IO
-
 -- ** Interactive Programs
 
 -- * The input/output Type
