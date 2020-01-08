@@ -145,4 +145,4 @@ exprSubs' = natural >>= \n ->
             many' (symbol "-" >>= \_ ->
                    natural)
                     >>= \ns ->
-            return (foldl (-) 0 (n : ns))
+            return (foldl (-) n ns)
