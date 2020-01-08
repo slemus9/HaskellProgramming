@@ -35,7 +35,7 @@ calc xs = display xs >>= \_ ->
           (if elem c buttons then
             process c xs
            else
-            beep     >>= \_ ->
+            showError "character not allowed" >>= \_ ->
             calc xs)
 
 process :: Char -> String -> IO ()
@@ -55,8 +55,11 @@ delete xs = calc (init xs)
 
 eval :: String -> IO ()
 eval xs = case parse expr xs of
-                [(n, "")] -> calc (show n)
-                _       -> beep >>= \_ -> calc xs
+                [(n, "")]  -> calc (show n)
+                [(_, out)] -> showError ("unconsummed input " ++ out) >>= \_ ->
+                              calc xs
+                []         -> showError "invalid input" >>= \_ ->
+                              calc xs
 
 clear :: IO ()
 clear = calc ""
@@ -68,3 +71,7 @@ run :: IO ()
 run = cls     >>= \_ ->
       showbox >>= \_ ->
       clear
+
+-- Exercise 2
+showError :: String -> IO ()
+showError out = writeat (1, 14) ("Error: " ++ out)
