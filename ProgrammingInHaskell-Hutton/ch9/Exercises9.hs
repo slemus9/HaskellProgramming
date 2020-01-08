@@ -21,3 +21,9 @@ readLine = go "" where
 an error rather than just sounding a beep.
   SOLVED in file Calculator.hs
 }
+
+{-- 3. One some systems the game of life may flicker, due to the entire screen
+being cleared each generation. Modify the game to avoid such flicker by
+only redisplaying positions whose status changes.
+  SOLVED in file GameOfLife.hs
+}

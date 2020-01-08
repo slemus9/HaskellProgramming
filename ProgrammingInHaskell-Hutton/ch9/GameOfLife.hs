@@ -56,3 +56,20 @@ life b = cls         >>= \_ ->
 
 wait :: Int -> IO ()
 wait n = seqn [return () | _ <- [1 .. n]]
+
+-- Exercise 3
+
+shownewcells :: Board -> Board -> IO ()
+shownewcells bprev bpost = seqn [writeat p1 "O" >>= \_ ->
+                                 writeat p2 " "
+                                 | p1 <- filter (\x -> not(elem x bprev)) bpost,
+                                   p2 <- filter (\x -> not(elem x bpost)) bprev]
+
+lifenoflick :: Board -> IO ()
+lifenoflick b = cls >>= \_ ->
+                go [(width + 1, height + 1)] b
+  where
+    go :: Board -> Board -> IO()
+    go bprev bpost = shownewcells bprev bpost >>= \_ ->
+                     wait 5000                >>= \_ ->
+                     go bpost (nextgen bpost)
