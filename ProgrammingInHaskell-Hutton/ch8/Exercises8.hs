@@ -80,8 +80,8 @@ term = factor >>= \f ->
         +++
         return f
 
-eval :: String -> Int
-eval xs = case parse expr xs of
+eval :: Parser Int -> String -> Int
+eval expr xs = case parse expr xs of
                [(n, [])] -> n
                [(_, out)] -> error ("unconsummed input " ++ out)
                [] -> error ("invalid input")
@@ -140,3 +140,9 @@ generating an infinite loop.
 -}
 
 -- 8.d. Show how it can be fixed
+exprSubs' :: Parser Int
+exprSubs' = natural >>= \n ->
+            many' (symbol "-" >>= \_ ->
+                   natural)
+                    >>= \ns ->
+            return (foldl (-) 0 (n : ns))
