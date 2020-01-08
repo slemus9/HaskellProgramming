@@ -133,7 +133,7 @@ exprSubs = (exprSubs   >>= \e ->
            +++
            natural
 
-{- 8.c What is the problem with this parser?
+{- 8.c. What is the problem with this parser?
 When trying to associate to the left, the first operation of the function was set
 to be a recursion; precisely because this is the first operation, the recursion is
 generating an infinite loop.
