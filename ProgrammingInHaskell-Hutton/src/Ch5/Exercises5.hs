@@ -1,3 +1,7 @@
+module Ch5.Exercises5(
+
+) where
+
 import Ch5.Notes5
 import Data.Char
 

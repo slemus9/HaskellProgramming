@@ -1,3 +1,7 @@
+module Ch9.GameOfLife(
+
+) where
+
 import Ch9.Notes9
 -- * Game of life
 type Pos = (Int, Int)

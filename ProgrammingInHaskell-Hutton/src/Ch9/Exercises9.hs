@@ -1,3 +1,7 @@
+module Ch9.Exercises9(
+
+) where
+
 {- 1. Define an action readLine :: IO String that behaves in the same way as
 getLine, except that it also permits the delete key to be used to remove
 characters.
@@ -17,16 +21,16 @@ readLine = go "" where
                                     back1 >>= \_ ->
                                     go (init cs)
                         _      -> go (cs ++ [c]))
-{-- 2. Modify the calculator program to indicate the approximate position of
+{- 2. Modify the calculator program to indicate the approximate position of
 an error rather than just sounding a beep.
   SOLVED in file Calculator.hs
-}
+-}
 
-{-- 3. One some systems the game of life may flicker, due to the entire screen
+{- 3. One some systems the game of life may flicker, due to the entire screen
 being cleared each generation. Modify the game to avoid such flicker by
 only redisplaying positions whose status changes.
   SOLVED in file GameOfLife.hs
-}
+-}
 
 {- 6. Nim Game
   SOLVED in file Nim.hs

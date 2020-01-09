@@ -1,3 +1,7 @@
+module Ch8.Exercises8(
+
+) where
+
 import Ch8.Notes8Alt
 import Data.Char
 

@@ -1,3 +1,7 @@
+module Ch3.Notes3(
+
+) where
+
 -- ** Types and Classes
 
 -- Exercises:

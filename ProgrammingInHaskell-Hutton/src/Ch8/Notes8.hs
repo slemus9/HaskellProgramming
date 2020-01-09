@@ -1,3 +1,7 @@
+module Ch8.Notes8(
+
+) where
+
 import Data.Char
 
 -- ** Functional Parsers

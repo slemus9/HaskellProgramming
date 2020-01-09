@@ -1,3 +1,7 @@
+module Ch7.Notes7(
+
+) where
+
 -- ** Higher-Order Functions
 
 {- A function that takes a function as an argument

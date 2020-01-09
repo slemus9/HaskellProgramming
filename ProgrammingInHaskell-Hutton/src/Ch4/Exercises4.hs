@@ -1,3 +1,7 @@
+module Ch4.Exercises4(
+
+) where
+
 -- 1. Using library functions define a function halve :: [a] -> ([a],[a])
 halve :: [a] -> ([a],[a])
 halve xs = (take half xs, drop half xs)

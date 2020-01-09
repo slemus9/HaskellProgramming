@@ -1,3 +1,7 @@
+module Ch9.Nim(
+
+) where
+
 import Data.Array
 import Ch9.Notes9
 

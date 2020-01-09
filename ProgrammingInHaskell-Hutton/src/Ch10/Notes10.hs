@@ -11,7 +11,7 @@ Type declarations establish synonyms for existing types.
 Previous examples:
   type String = [Char]
   type Board = [Pos]
-  type Pos = (Int, Int)
+  type Pos = (Int, Int) 
 
 Type declarations cannot be recursive, for example the following
 declaration is NOT allowed:

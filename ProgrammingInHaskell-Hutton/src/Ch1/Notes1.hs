@@ -1,3 +1,7 @@
+module Ch1.Notes1(
+
+) where
+
 -- ** Introduction
 
 sum' :: Num a => [a] -> a

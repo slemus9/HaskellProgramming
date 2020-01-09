@@ -1,5 +1,9 @@
+module Ch9.Calculator(
+
+) where
+
 import Ch9.Notes9
-import ArithmeticParser
+import Ch9.ArithmeticParser
 
 -- * Calculator
 box :: [String ]

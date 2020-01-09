@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: eb2bc7cb76f73234461f6a016d5432ab1f4e5301619e005a86bc65687305a03e
+-- hash: fcd598b9d5a8d867db3c980af3b65cc490a76a12893df10bd65e1ad996157f35
 
 name:           ProgrammingInHaskell-Hutton
 version:        0.1.0.0
@@ -27,13 +27,38 @@ source-repository head
 
 library
   exposed-modules:
+      Ch1.Notes1
+      Ch10.Notes10
+      Ch10.TautologyChecker
+      Ch2.Notes2
+      Ch3.Notes3
+      Ch4.Exercises4
+      Ch4.Notes4
+      Ch5.CaesarCipher
+      Ch5.Exercises5
+      Ch5.Notes5
+      Ch6.Exercises6
+      Ch6.Notes6
+      Ch7.Exercises7
+      Ch7.Notes7
+      Ch7.StringTransmitter
+      Ch8.Exercises8
+      Ch8.Notes8
+      Ch8.Notes8Alt
+      Ch9.ArithmeticParser
+      Ch9.Calculator
+      Ch9.Exercises9
+      Ch9.GameOfLife
+      Ch9.Nim
+      Ch9.Notes9
       Lib
   other-modules:
       Paths_ProgrammingInHaskell_Hutton
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      array
+    , base >=4.7 && <5
   default-language: Haskell2010
 
 executable ProgrammingInHaskell-Hutton-exe
@@ -45,6 +70,7 @@ executable ProgrammingInHaskell-Hutton-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       ProgrammingInHaskell-Hutton
+    , array
     , base >=4.7 && <5
   default-language: Haskell2010
 
@@ -58,5 +84,6 @@ test-suite ProgrammingInHaskell-Hutton-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       ProgrammingInHaskell-Hutton
+    , array
     , base >=4.7 && <5
   default-language: Haskell2010

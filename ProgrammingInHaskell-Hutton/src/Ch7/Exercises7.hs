@@ -1,3 +1,7 @@
+module Ch7.Exercises7(
+
+) where
+
 import Ch7.StringTransmitter
 import Data.Char
 

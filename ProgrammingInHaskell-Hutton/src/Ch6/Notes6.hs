@@ -1,3 +1,7 @@
+module Ch6.Notes6(
+
+) where
+
 -- ** Recursive Functions
 
 -- * Basics:

@@ -1,3 +1,7 @@
+module Ch2.Notes2(
+
+) where
+
 -- ** First Steps
 
 double :: Int -> Int

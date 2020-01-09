@@ -1,3 +1,6 @@
+module Ch4.Notes4(
+
+) where
 -- ** Defining Functions
 
 -- Decide if a character is a digit:

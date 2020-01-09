@@ -1,3 +1,7 @@
+module Ch6.Exercises6(
+
+) where
+
 {- 1. Define the exponentiation operator ↑ for non-negative integers using the
 same pattern of recursion as the multiplication operator ∗, and show
 how 2^3 is evaluated using your definition.
