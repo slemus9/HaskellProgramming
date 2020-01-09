@@ -1,4 +1,4 @@
-import StringTransmitter
+import Ch7.StringTransmitter
 import Data.Char
 
 {- 1. Show how the list comprehension [f x | x ← xs, p x ]

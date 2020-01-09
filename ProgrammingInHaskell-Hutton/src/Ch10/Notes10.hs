@@ -1,4 +1,4 @@
-module Notes10(
+module Ch10.Notes10(
   Assoc,
   find
 ) where

@@ -1,4 +1,4 @@
-module Notes9 (
+module Ch9.Notes9 (
   seqn,
   writeat,
   beep,

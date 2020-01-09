@@ -1,4 +1,8 @@
-import Notes10
+module Ch10.TautologyChecker (
+
+) where
+
+import Ch10.Notes10
 
 -- * Tautology checker
 data Prop = Const Bool

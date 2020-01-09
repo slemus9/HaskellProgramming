@@ -1,4 +1,4 @@
-import Notes9
+import Ch9.Notes9
 -- * Game of life
 type Pos = (Int, Int)
 type Board = [Pos]

@@ -1,5 +1,5 @@
 import Data.Array
-import Notes9
+import Ch9.Notes9
 
 -- Exercise 6
 type Array1D a = Array Int a

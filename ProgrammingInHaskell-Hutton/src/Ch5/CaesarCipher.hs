@@ -1,5 +1,5 @@
 import Data.Char
-import Notes5
+import Ch5.Notes5
 
 -- * Caesar's Cipher
 -- Only for lower case letters

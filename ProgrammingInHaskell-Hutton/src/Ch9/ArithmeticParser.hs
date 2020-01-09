@@ -1,21 +1,12 @@
-module Notes8Alt(
-  Parser,
+module Ch9.ArithmeticParser(
   parse,
-  (+++),
-  natural,
-  symbol,
-  sat,
-  alphanum,
-  many',
-  char
-) where
+  expr
+)where
 
 import Data.Char
 import Control.Applicative
 import Control.Monad
 
--- http://www.cs.nott.ac.uk/~pszgmh/Parsing.lhs
--- ** Functional Parsers
 newtype Parser a = P (String -> [(a, String)])
 
 parse :: Parser a -> String -> [(a, String)]
@@ -125,28 +116,30 @@ natural = token nat
 symbol :: String -> Parser String
 symbol xs = token (string xs)
 
-pIntList :: Parser [Int]
-pIntList = symbol "["      >>= \_ ->
-           natural         >>= \n ->
-           many' (symbol "," >>= \_ ->
-                  natural) >>= \ns ->
-           symbol "]"      >>= \_ ->
-           return (n : ns)
-
 -- * Arithmetic Expressions
 expr :: Parser Int
 expr = term >>= \t ->
         (symbol "+" >>= \_ ->
          expr       >>= \e ->
          return (t + e))
-        +++ return t
+        +++
+        (symbol "-" >>= \_ ->
+         expr       >>= \e ->
+         return (t - e))
+        +++
+        return t
 
 term :: Parser Int
 term = factor >>= \f ->
         (symbol "*" >>= \_ ->
          term       >>= \t ->
          return (f * t))
-        +++ return f
+        +++
+        (symbol "/" >>= \_ ->
+         term       >>= \t ->
+         return (f `div` t))
+        +++
+        return f
 
 factor :: Parser Int
 factor = (symbol "(" >>= \_ ->

@@ -1,4 +1,4 @@
-import Notes8Alt
+import Ch8.Notes8Alt
 import Data.Char
 
 -- 1. Define the parser int :: Parser Int.

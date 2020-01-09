@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: eb2bc7cb76f73234461f6a016d5432ab1f4e5301619e005a86bc65687305a03e
+
+name:           ProgrammingInHaskell-Hutton
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/ProgrammingInHaskell-Hutton#readme>
+homepage:       https://github.com/githubuser/ProgrammingInHaskell-Hutton#readme
+bug-reports:    https://github.com/githubuser/ProgrammingInHaskell-Hutton/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/ProgrammingInHaskell-Hutton
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_ProgrammingInHaskell_Hutton
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable ProgrammingInHaskell-Hutton-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_ProgrammingInHaskell_Hutton
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ProgrammingInHaskell-Hutton
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite ProgrammingInHaskell-Hutton-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_ProgrammingInHaskell_Hutton
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ProgrammingInHaskell-Hutton
+    , base >=4.7 && <5
+  default-language: Haskell2010

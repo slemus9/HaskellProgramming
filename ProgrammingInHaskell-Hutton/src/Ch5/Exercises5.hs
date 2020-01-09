@@ -1,4 +1,4 @@
-import Notes5
+import Ch5.Notes5
 import Data.Char
 
 {- 1. Using a list comprehension, give an expression that calculates the sum

@@ -1,4 +1,4 @@
-module StringTransmitter(
+module Ch7.StringTransmitter(
   bin2int,
   int2bin,
   make8
