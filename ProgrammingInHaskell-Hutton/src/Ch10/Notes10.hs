@@ -1,6 +1,9 @@
 module Ch10.Notes10(
   Assoc,
-  find
+  Nat(Zero, Succ),
+  Tree(Leaf, Node),
+  find,
+  add
 ) where
 
 -- ** Declaring Types and Classes
@@ -74,7 +77,7 @@ safehead xs = Just $ head xs
 
 -- * Recursive types
 -- Naturals
-data Nat = Zero | Succ Nat
+data Nat = Zero | Succ Nat deriving (Eq, Show)
 
 nat2int :: Nat -> Int
 nat2int Zero = 0
