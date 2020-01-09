@@ -1,5 +1,5 @@
 module Ch9.GameOfLife(
-
+  rmdups
 ) where
 
 import Ch9.Notes9

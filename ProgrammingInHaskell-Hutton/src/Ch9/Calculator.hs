@@ -3,7 +3,7 @@ module Ch9.Calculator(
 ) where
 
 import Ch9.Notes9
-import Ch9.ArithmeticParser
+import Ch8.ArithmeticParser
 
 -- * Calculator
 box :: [String ]

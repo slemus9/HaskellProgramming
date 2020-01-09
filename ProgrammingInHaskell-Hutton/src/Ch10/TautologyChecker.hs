@@ -3,6 +3,7 @@ module Ch10.TautologyChecker (
 ) where
 
 import Ch10.Notes10
+import Ch9.GameOfLife
 
 -- * Tautology checker
 data Prop = Const Bool
@@ -43,3 +44,7 @@ bools :: Int -> [[Bool]]
 bools 0 = [[]]
 bools n = map (False:) bss ++ map (True:) bss
           where bss = bools (n - 1)
+
+subst :: Prop -> [Subst]
+subst p = map (zip vs) (bools $ length vs) 
+          where vs = rmdups (vars p)
