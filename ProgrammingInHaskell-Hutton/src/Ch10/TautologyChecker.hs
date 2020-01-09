@@ -45,6 +45,9 @@ bools 0 = [[]]
 bools n = map (False:) bss ++ map (True:) bss
           where bss = bools (n - 1)
 
-subst :: Prop -> [Subst]
-subst p = map (zip vs) (bools $ length vs) 
+substs :: Prop -> [Subst]
+substs p = map (zip vs) (bools $ length vs) 
           where vs = rmdups (vars p)
+
+isTaut :: Prop -> Bool
+isTaut p = and [eval s p | s <- substs p]
