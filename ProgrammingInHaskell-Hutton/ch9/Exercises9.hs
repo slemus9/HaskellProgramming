@@ -27,3 +27,7 @@ being cleared each generation. Modify the game to avoid such flicker by
 only redisplaying positions whose status changes.
   SOLVED in file GameOfLife.hs
 }
+
+{- 6. Nim Game
+  SOLVED in file Nim.hs
+-}
