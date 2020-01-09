@@ -124,3 +124,36 @@ Some examples of various types of Trees:
   data Tree a b = Leaf a | Node (Tree a b) b (Tree a b)
   data Tree a = Node a [Tree a]
 -}
+
+-- * Class and instance declarations
+{-
+Examples:
+  class Eq a where
+    (==), (/=) :: a -> a -> Bool
+    x /= y = not(x == y)
+  
+  instance Eq Bool where
+    False == False = True
+    True  == True  = True
+    _     == _     = False
+
+Only types declared using data declaration can be made into
+instance classes.
+
+Default definitions can be overridden in instance declarations.
+-}
+
+-- * Derived instances
+{-
+Makes a new type an instance of existing classes
+Example:
+  data Bool = False | True
+              deriving (Eq, Ord, Show, Read)
+-}
+
+-- * Monadic types
+{-
+  class Monad m where
+    return :: a -> m a
+    (>>=)  :: m a -> (a -> m b) -> m b
+-}
