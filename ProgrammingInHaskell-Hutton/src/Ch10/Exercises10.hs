@@ -79,17 +79,6 @@ user-friendly syntax.
 -- 8.1. For Maybe:
 data Maybe' a = Nothing' | Just' a
 
-joinLists :: List a -> List a -> List a
-joinLists Nil ys = ys
-joinLists (Cons x xs) ys = Cons x (joinLists xs ys)
-
-concatList :: List (List a) -> List a
-concatList = foldr joinLists Nil
-
-instance Foldable List where
-    foldr _ z Nil = z
-    foldr f z (Cons x xs) = f x (foldr f z xs)
-
 instance Functor Maybe' where
     fmap _  Nothing' = Nothing'
     fmap f (Just' x) = Just' (f x)
@@ -105,6 +94,17 @@ instance Monad Maybe' where
     Nothing'  >>= _ = Nothing' 
 
 -- 8.2. For List:
+joinLists :: List a -> List a -> List a
+joinLists Nil ys = ys
+joinLists (Cons x xs) ys = Cons x (joinLists xs ys)
+
+concatList :: List (List a) -> List a
+concatList = foldr joinLists Nil
+
+instance Foldable List where
+    foldr _ z Nil = z
+    foldr f z (Cons x xs) = f x (foldr f z xs)
+
 instance Functor List where
     fmap _ Nil          = Nil
     fmap f (Cons x xs)  = Cons (f x) (fmap f xs)
