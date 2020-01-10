@@ -66,8 +66,8 @@ var = upper >>= \v ->
       return (Var v)
 
 bool :: Parser Prop
-bool = (symbol "T" >>= \_ ->
+bool = (symbol "True" >>= \_ ->
         return (Const True))
        +++
-       (symbol "F" >>= \_ ->
+       (symbol "False" >>= \_ ->
         return (Const False))
