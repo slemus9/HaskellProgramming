@@ -1,5 +1,6 @@
 module Ch10.TautologyChecker (
-    Subst
+    Subst,
+    Prop (Const, Var, Not, And, Imply, Or, Equiv)
 ) where
 
 import Ch10.Notes10

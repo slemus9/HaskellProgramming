@@ -3,7 +3,7 @@ module Ch10.Exercises10(
 )where
 
 import Ch10.Notes10
-import Ch10.TautologyChecker
+import Ch10.TautologyChecker (Subst)
 
 -- Exercises
 {- 1. Using recursion and the function add , define a multiplication function
@@ -64,6 +64,7 @@ balance xs = Node' (balance h1) (balance h2)
 braries from the previous two chapters, define an interactive tautology
 checker that allows propositions to be entered from the keyboard in a
 user-friendly syntax.
+    SOLVED in file TautologyCheckerParser.hs
 -}
 
 {- 7. Extend the abstract machine to support the use of multiplication.
