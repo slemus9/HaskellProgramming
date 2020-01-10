@@ -76,7 +76,7 @@ bool = (symbol "True" >>= \_ ->
 
 evalprop :: String -> String
 evalprop xs = case parse prop xs of
-                   [(p, "")]   -> if isTaut p then "It's a Tautology!" else "It's not a Tautology."
+                   [(p, "")]   -> if isTaut p then "It's a Tautology! :D ." else "It's not a Tautology D: ."
                    [(_, out)] -> "Error: Unconsumed input: " ++ out
                    []         -> "Error: Invalid input"
 
