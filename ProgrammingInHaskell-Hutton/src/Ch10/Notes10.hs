@@ -2,6 +2,7 @@ module Ch10.Notes10(
   Assoc,
   Nat(Zero, Succ),
   Tree(Leaf, Node),
+  List(Nil, Cons),
   find,
   add
 ) where
@@ -93,7 +94,7 @@ add Zero n = n
 add (Succ m) n = Succ (add m n)
 
 -- Lists
-data List a = Nil | Cons a (List a)
+data List a = Nil | Cons a (List a) deriving Show
 
 len :: List a -> Int
 len Nil = 0

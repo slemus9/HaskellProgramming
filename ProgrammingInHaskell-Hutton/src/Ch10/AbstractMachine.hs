@@ -3,8 +3,15 @@ module Ch10.AbstractMachine(
 )where
 
 -- * Abstract machine
-data Expr = Val Int | Add Expr Expr
-data Op   = EVAL Expr | ADD Int
+
+-- Exercise 7
+data Expr = Val Int 
+            | Add  Expr Expr
+            | Mult Expr Expr
+
+data Op   = EVALA Expr | EVALM Expr
+            | ADD  Int
+            | MULT Int
 
 type Cont = [Op]
 
@@ -14,10 +21,13 @@ value :: Expr -> Int
 value e = eval e []
 
 eval :: Expr -> Cont -> Int
-eval (Val n) c = exec c n
-eval (Add x y) c = eval x (EVAL y : c)
+eval (Val  n)   c = exec c n
+eval (Add  x y) c = eval x (EVALA y : c)
+eval (Mult x y) c = eval x (EVALM y : c)
 
 exec :: Cont -> Int -> Int
 exec [] n = n
-exec (EVAL y : c) n = eval y (ADD n : c)
-exec (ADD  n : c) m = exec c (n + m)
+exec (EVALA y : c) n = eval y (ADD n : c)
+exec (ADD   n : c) m = exec c (n + m)
+exec (EVALM y : c) n = eval y (MULT n : c)
+exec (MULT  n : c) m = exec c (n * m)
