@@ -1,4 +1,4 @@
-module Ch10.Notes10(
+module Ch10.Notes(
   Assoc,
   Nat(Zero, Succ),
   Tree(Leaf, Node),

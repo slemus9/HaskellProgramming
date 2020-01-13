@@ -3,7 +3,7 @@ module Ch9.Nim(
 ) where
 
 import Data.Array
-import Ch9.Notes9
+import Ch9.Notes
 
 -- Exercise 6
 type Array1D a = Array Int a

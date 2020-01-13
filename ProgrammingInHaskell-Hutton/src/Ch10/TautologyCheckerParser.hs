@@ -2,8 +2,8 @@ module Ch10.TautologyCheckerParser(
 
 ) where
 
-import Ch8.Notes8Alt (Parser, symbol, (+++), upper, parse)
-import Ch9.Notes9 (cls)
+import Ch8.NotesAlt (Parser, symbol, (+++), upper, parse)
+import Ch9.Notes (cls)
 import Ch10.TautologyChecker (Prop(Const, Var, Not, And, Imply, Or, Equiv),
                               isTaut)
 

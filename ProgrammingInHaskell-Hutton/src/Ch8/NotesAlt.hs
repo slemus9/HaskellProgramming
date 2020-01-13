@@ -1,4 +1,4 @@
-module Ch8.Notes8Alt(
+module Ch8.NotesAlt(
   Parser,
   parse,
   (+++),

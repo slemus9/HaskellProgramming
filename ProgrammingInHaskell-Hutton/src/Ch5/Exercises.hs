@@ -1,8 +1,8 @@
-module Ch5.Exercises5(
+module Ch5.Exercises(
 
 ) where
 
-import Ch5.Notes5
+import Ch5.Notes
 import Data.Char
 
 {- 1. Using a list comprehension, give an expression that calculates the sum

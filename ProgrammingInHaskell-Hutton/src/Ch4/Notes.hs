@@ -1,4 +1,4 @@
-module Ch4.Notes4(
+module Ch4.Notes(
 
 ) where
 -- ** Defining Functions

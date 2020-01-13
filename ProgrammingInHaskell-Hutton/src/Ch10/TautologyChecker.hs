@@ -4,7 +4,7 @@ module Ch10.TautologyChecker (
     isTaut
 ) where
 
-import Ch10.Notes10
+import Ch10.Notes
 import Ch9.GameOfLife
 
 -- * Tautology checker

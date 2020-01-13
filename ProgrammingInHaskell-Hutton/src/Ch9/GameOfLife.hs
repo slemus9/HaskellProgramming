@@ -2,7 +2,7 @@ module Ch9.GameOfLife(
   rmdups
 ) where
 
-import Ch9.Notes9
+import Ch9.Notes
 -- * Game of life
 type Pos = (Int, Int)
 type Board = [Pos]

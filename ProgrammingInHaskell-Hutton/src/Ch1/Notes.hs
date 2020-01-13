@@ -1,4 +1,4 @@
-module Ch1.Notes1(
+module Ch1.Notes(
 
 ) where
 

@@ -1,8 +1,8 @@
-module Ch10.Exercises10(
+module Ch10.Exercises(
 
 )where
 
-import Ch10.Notes10
+import Ch10.Notes
 import Ch10.TautologyChecker (Subst)
 
 -- Exercises

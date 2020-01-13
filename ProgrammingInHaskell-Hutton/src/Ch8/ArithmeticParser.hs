@@ -3,7 +3,7 @@ module Ch8.ArithmeticParser(
     expr
 ) where
 
-import Ch8.Notes8Alt
+import Ch8.NotesAlt
 -- * Arithmetic Expressions
 
 expr :: Parser Int

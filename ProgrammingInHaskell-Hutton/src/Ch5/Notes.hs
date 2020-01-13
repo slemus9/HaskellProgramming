@@ -1,4 +1,4 @@
-module Ch5.Notes5(
+module Ch5.Notes(
     lowers,
     count,
     positions,

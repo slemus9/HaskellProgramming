@@ -3,7 +3,7 @@ module Ch5.CaesarCipher(
 ) where
 
 import Data.Char
-import Ch5.Notes5
+import Ch5.Notes
 
 -- * Caesar's Cipher
 -- Only for lower case letters

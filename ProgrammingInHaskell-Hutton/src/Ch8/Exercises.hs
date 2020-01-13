@@ -1,8 +1,8 @@
-module Ch8.Exercises8(
+module Ch8.Exercises(
 
 ) where
 
-import Ch8.Notes8Alt
+import Ch8.NotesAlt
 import Data.Char
 
 -- 1. Define the parser int :: Parser Int.

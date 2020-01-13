@@ -1,4 +1,4 @@
-module Ch6.Exercises6(
+module Ch6.Exercises(
 
 ) where
 

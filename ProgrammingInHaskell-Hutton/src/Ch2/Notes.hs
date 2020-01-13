@@ -1,4 +1,4 @@
-module Ch2.Notes2(
+module Ch2.Notes(
 
 ) where
 
