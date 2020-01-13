@@ -1,12 +1,17 @@
 module Ch11.CountdownProblem(
-
+    Expr,
+    Op (Add, Sub, Mul, Div),
+    subs,
+    perms,
+    exprs,
+    eval
 ) where
 
 -- ** The Countdown Problem
 
 -- * Formalising the problem
 
-data Op = Add | Sub | Mul | Div deriving Show
+data Op = Add | Sub | Mul | Div | Pow deriving Show
 data Expr = Val Int | App Op Expr Expr deriving Show
 
 -- Check if the operations are valid within the Natural Numbers
@@ -23,6 +28,7 @@ apply Add x y = x + y
 apply Sub x y = x - y
 apply Mul x y = x * y
 apply Div x y = x `div` y
+apply Pow x y = x ^ y
 
 -- Return the list of values in an expression
 values :: Expr -> [Int]
@@ -80,7 +86,7 @@ combine :: Expr -> Expr -> [Expr]
 combine l r = [App o l r | o <- ops]
 
 ops :: [Op]
-ops = [Add, Sub, Mul, Div]
+ops = [Add, Sub, Mul, Div, Pow]
 
 solutions :: [Int] -> Int -> [Expr]
 solutions ns n = [e | ns' <- choices ns,
@@ -119,3 +125,4 @@ valid Add x y = x <= y
 valid Sub x y = x > y
 valid Mul x y = x /= 1 && y /= 1 && x <= y
 valid Div x y = y /= 1 && x `mod` y == 0
+valid Pow x y = y >= 0
