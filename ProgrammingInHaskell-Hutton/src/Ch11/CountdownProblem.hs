@@ -10,11 +10,13 @@ data Op = Add | Sub | Mul | Div deriving Show
 data Expr = Val Int | App Op Expr Expr deriving Show
 
 -- Check if the operations are valid within the Natural Numbers
-valid :: Op -> Int -> Int -> Bool
-valid Add _ _ = True
-valid Sub x y = x > y
-valid Mul _ _ = True
-valid Div x y = x `mod` y == 0
+{-
+    valid :: Op -> Int -> Int -> Bool
+    valid Add _ _ = True
+    valid Sub x y = x > y
+    valid Mul _ _ = True
+    valid Div x y = x `mod` y == 0
+-}
 
 apply :: Op -> Int -> Int -> Int
 apply Add x y = x + y
@@ -59,3 +61,61 @@ solution e ns n = elem (values e) (choices ns) && eval e == [n]
 
 -- * Brute force solution
 
+-- Returns all possible ways of splitting a list into two non-empty lists that appended give the original
+split :: [a] -> [([a], [a])]
+split [] = []
+split [_] = []
+split (x : xs) = ([x], xs) : [(x : ls, rs) | (ls, rs) <- split xs]
+
+-- Returns all possible expressions whose list of values is precisely a given list
+exprs :: [Int] -> [Expr]
+exprs [] = []
+exprs [n] = [Val n]
+exprs ns = [e | (ls, rs) <- split ns,
+                l <- exprs ls,
+                r <- exprs rs,
+                e <- combine l r]
+
+combine :: Expr -> Expr -> [Expr]
+combine l r = [App o l r | o <- ops]
+
+ops :: [Op]
+ops = [Add, Sub, Mul, Div]
+
+solutions :: [Int] -> Int -> [Expr]
+solutions ns n = [e | ns' <- choices ns,
+                      e   <- exprs ns',
+                      eval e == [n]]
+
+-- * Combining generation and evaluation
+type Result = (Expr, Int)
+
+results :: [Int] -> [Result]
+results [] = []
+results [n] = [(Val n, n) | n > 0]
+results ns = [res | (ls, rs) <- split ns,
+                    lx <- results ls,
+                    ry <- results rs,
+                    res <- combine' lx ry]
+
+combine' :: Result -> Result -> [Result]
+combine' (l, x) (r, y) = [(App o l r, apply o x y) | o <- ops, valid o x y]
+
+solutions' :: [Int] -> Int -> [Expr]
+solutions' ns n = [e |  ns' <- choices ns,
+                        (e, m) <- results ns',
+                        m == n]
+
+-- * Exploiting algebraic properties
+{-Exploit the following properties:
+    x + y = y + x
+    x * y = y * x
+    x * 1 = x
+    1 * y = y
+    x / 1 = x
+-}
+valid :: Op -> Int -> Int -> Bool
+valid Add x y = x <= y
+valid Sub x y = x > y
+valid Mul x y = x /= 1 && y /= 1 && x <= y
+valid Div x y = y /= 1 && x `mod` y == 0
