@@ -204,3 +204,8 @@ We obtain a similar expression as we did on the Tree data
 comp' :: Expr -> Code -> Code
 comp' (Val n) c = PUSH n : c
 comp' (Add x y) c = comp' x (comp' y (ADD : c))
+
+{- Now the correctness of the compiler can be proved by using induction
+to verify that:
+    exec (comp' e c) s = exec c (eval e : s)
+-}
