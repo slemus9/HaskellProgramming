@@ -63,6 +63,7 @@ generates the infinite sequence of Fibonacci numbers. -}
 
 fibs :: [Integer]
 fibs = 0 : 1 : [f1 + f2 | (f1, f2) <- zip fibs (tail fibs) ]
+-- fibs = zipWith (+) (1 : fibs) (0 : 1 : fibs)
 
 {- 5. Using fibs, define a function fib :: Int → Integer that returns the nth Fi-
 bonnaci number (counting from zero), and an expression that calculates
