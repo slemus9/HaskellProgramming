@@ -1,5 +1,7 @@
 module Ch13.Notes (
-
+    Expr (Val, Add),
+    Op (PUSH, ADD),
+    Code
 ) where
 
 -- * Reasoning about programs
